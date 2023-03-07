@@ -1,0 +1,43 @@
+﻿@model Review
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+
+
+    <table class="table">
+       
+
+            <tr>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.VoterName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Stars)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Comment)
+                </th>
+                
+            <tr>
+        <td>
+                @Model.VoterName
+        </td>
+
+        <td>
+                @Html.DisplayFor(model => model.Stars)
+        </td>
+            <td>                @Html.DisplayFor(model => model.Comment)
+</td>
+            </tr>
+
+               
+                </table>
+
+<a asp-action="Index">Back to List</a>
+
+   
+

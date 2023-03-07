@@ -1,0 +1,74 @@
+﻿@model IEnumerable<lab7.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="Create">ADD A new BooK</a>
+</p>
+<table >
+    <thead>
+        <tr>
+            <th class="cell">
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+           
+            <th class="cell">
+                @Html.DisplayNameFor(model => model.Publish_on)
+            </th >
+            <th class="cell">
+                @Html.DisplayNameFor(model => model.Publisher)
+            </th>
+            <th class="cell">
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            
+            <th></th>
+        </tr>
+        @*<tr><td colspan=6><hr/></td></tr>*@
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+
+            <tr class="cell" onclick="window.location='https://localhost:7227/Books/Details/@item.Id'">
+            <td >
+                    <img src="/images/@item.ImageURL" width="85px" hight="85px"  />
+                    
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            
+            
+            <td>
+                    @Html.DisplayFor(modelItem => item.Publish_on, "{0:dd/MM/yyyy}")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        <tr><td colspan=6><hr></td></tr>
+}
+    </tbody>
+</table>
+@*<div class="grid">
+    @foreach (var item in Model)
+    {<div >
+            <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+            <img src="/images/@item.ImageURL" width="300px" hight="300px" />
+            <h6>@item.Title]</h6>
+            <p>@item.Description</p>
+    </div>
+        
+    }
+</div>*@

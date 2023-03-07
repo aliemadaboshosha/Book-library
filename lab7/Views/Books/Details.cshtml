@@ -1,0 +1,129 @@
+﻿@model lab7.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<table class="table " >
+    <tr>
+        <td colspan="@Model.Authors.Count()" style="float:right">
+            <img src="/images/@Model.ImageURL" width="300px" hight="300px" />
+            <h1 class="title">@Model.Title</h1>
+
+        </td>
+    </tr>
+    <tr></tr>
+    <tr>
+        <th>
+            
+            by:</th>
+        <td colspan="@Model.Authors.Count()">
+            @foreach (var item in Model.Authors)
+        {
+
+                @item.Author.Name  
+                <br />
+               
+            
+        }
+        </td>
+        
+        </tr>
+        <tr></tr>
+    <tr><th>Published on</th><td> @Model.Publish_on</td></tr>
+    <tr>
+        <th>
+            Categories:
+        </th>@foreach (var item in Model.Tags)
+        {
+            <td>
+                @item.Name
+            </td>
+            
+            
+        }
+        
+    
+    </tr>
+    <tr>
+        <th>Reviews</th>@{
+            float Stars = 0;
+            float reviewsCount = Model.Reviews.Count;
+        }
+        @foreach (var item in Model.Reviews)
+        {
+            Stars += item.Stars;
+
+        }
+        @{
+            float averageStars = Stars / reviewsCount;
+        }
+        
+        
+        <td>
+            @averageStars <span style="font-size:150%;color:goldenrod;">&starf;</span>
+     
+            by @reviewsCount persons
+        </td>
+    </tr>
+    <tr>
+        <th>Price</th>
+        <td>
+            @Model.Offer.NewPrice
+            <span class="text-danger text-decoration-line-through">@Html.DisplayFor(model => model.Price)</span>
+            <span class="text-danger">@Model.Offer.OfferTxt</span><span class="text-danger">
+                @{
+                    int x = 0;
+                }  you have save a @{
+                    x = Model.Price - Model.Offer.NewPrice;
+                }@x $
+            </span>
+        </td>
+    </tr>
+
+    </table>
+    <h2>Description</h2>
+<p class="description">@Model.Description</p>
+
+
+<div >
+    <h2 >Reviews</h2>
+    @foreach (var comment in Model.Reviews)
+        {
+        <div style="margin:15px 0px;color:white;background-color:rgb(1,18,12,0.5)">
+
+            <h5 style="padding:20px;">@comment.VoterName  </h5>
+
+            <div>@for (var i = 0; i < comment.Stars; i++)
+                 {
+                    <span style="font-size:150%;color:goldenrod;">&starf;</span>
+
+                }</div>
+            
+            
+            <p class="description" style="padding:0px 30px;background-color:rgb(1,18,12,1)">@comment.Comment</p>
+
+        
+    </div>
+    }
+</div>
+
+       
+
+        
+      
+       
+        
+        
+
+        
+
+        
+    
+
+
+
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+

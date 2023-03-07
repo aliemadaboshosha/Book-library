@@ -1,0 +1,110 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body{
+    margin-bottom: 60px;
+    background: url(/images/BooksBackground.jpg);
+    background-size:cover;
+    
+}
+.grid {
+    border: 1px solid;
+    height: 600px;
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+}
+    .grid div {
+        height: 50px;
+        width: 50px;
+         background-color: yellow; 
+         margin:10px;
+    }
+
+table {
+    border: 2px double;
+    border-color: rgb(182, 255, 0);
+    background-color: rgb(128, 128, 128,0.3);
+    position: relative;
+   padding: 50px;
+   
+    margin: 50px 50px;
+}
+table tr{
+   
+    color:white;
+    font-weight:700;
+    font-family:Tahoma;
+   
+   
+        
+}
+img {
+
+    display:block;
+}
+header nav div{
+    background-color:gray;
+}
+h1,h2,h3,h4,h5,h6{color:white;}
+
+
+    a{color:yellow;
+     font-weight:900;
+        
+    }
+   td,th{margin:50px;
+      padding:10px
+   }
+   th{font-size:xx-large
+          
+   }
+hr {
+    border: 2px solid rgb(182, 255, 0);
+    
+    
+   
+}
+  
+
+
+
+
+.cell:hover {
+            background-color:rgb(128, 128, 128,0.5);
+
+}
+label{color:white;}
+input[type=text], input[type=datetime-local],input[type=number],input[type=file],select {
+    color: white;
+    background-color:rgb(128, 128, 128,0.7);
+    border: 2px solid yellow;
+}
+
+.title:hover {
+    color: rgb(182, 255, 0);
+}
+.description {
+    color: white;
+    font-weight: 500;
+    font-size: large;
+}
+    .description:hover {
+        background-color: rgb(128, 128, 128,0.5);
+    }
+
+    [type="submit"]{font-size:large;
+                    font-weight:900;
+    }
